@@ -13,7 +13,7 @@
        (y z)))))
 
 (defmacro comb
-  ([c] c)
+  ([b] ~b)
   ([b c] `(~b ~c))
   ([b c & more]
      `(comb (comb ~b ~c) ~@more)))
