@@ -12,4 +12,10 @@
       ((x z)
        (y z)))))
 
-(identical? K (((S K) S) K))
+(defmacro comb
+  ([c] c)
+  ([b c] `(~b ~c))
+  ([b c & more]
+     `(comb (comb ~b ~c) ~@more)))
+
+(identical? K (comb S K S K))
