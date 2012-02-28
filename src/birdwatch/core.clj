@@ -19,3 +19,14 @@
      `(comb (comb ~b ~c) ~@more)))
 
 (identical? K (comb S K S K))
+
+
+(def T K)
+(def F (comb K I))
+
+(defn decode-bool [b]
+  (comb b true false))
+
+(identical? true (decode-bool T))
+(identical? false (decode-bool F))
+
